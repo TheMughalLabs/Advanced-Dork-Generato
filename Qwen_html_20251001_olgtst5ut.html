@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🎥 Advanced Dork Generator + Video Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --accent: #ff4d4d;
+            --success: #4ade80;
+            --border: #334155;
+        }
+        .light-mode {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --accent: #e11d48;
+            --success: #16a34a;
+            --border: #cbd5e1;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 12px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .input-group { margin-bottom: 18px; }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .file-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .file-type-box {
+            background: var(--bg-primary);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+        .file-type-box.selected {
+            border-color: var(--accent);
+            background: rgba(239, 68, 68, 0.1);
+        }
+        .file-type-box input { display: none; }
+        .file-type-box label { cursor: pointer; font-weight: 500; }
+        .complexity-selector {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .complexity-btn {
+            flex: 1;
+            padding: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .complexity-btn.active {
+            border-color: var(--accent);
+            background: rgba(239, 68, 68, 0.1);
+            font-weight: bold;
+        }
+        .templates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        .templates button {
+            flex: 1;
+            min-width: 110px;
+            padding: 7px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .project-manager {
+            margin: 18px 0;
+            padding: 12px;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 10px;
+        }
+        .project-list {
+            margin-top: 8px;
+            max-height: 120px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+        }
+        .project-item {
+            padding: 5px 0;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+        .project-item:hover { color: var(--accent); }
+        .preview-box {
+            background: rgba(30, 41, 59, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+        }
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0;
+        }
+        .action-buttons button {
+            flex: 1;
+            min-width: 130px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        #generateBtn {
+            background: linear-gradient(to right, var(--accent), #b91c1c);
+            color: white;
+        }
+        #exportBtn {
+            position: relative;
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        .export-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 100%;
+            z-index: 10;
+            display: none;
+            flex-direction: column;
+        }
+        .export-menu div {
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .export-menu div:hover { background: rgba(30, 41, 59, 0.5); }
+        .result {
+            margin-top: 20px;
+            display: none;
+        }
+        .result h2 {
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dork-item {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .dork-title {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .effectiveness-bar {
+            height: 5px;
+            background: #334155;
+            border-radius: 3px;
+            margin: 6px 0;
+            overflow: hidden;
+        }
+        .effectiveness-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        .dork-command {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fbbf24;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            font-size: 0.95rem;
+            margin: 8px 0;
+            border-left: 3px solid var(--accent);
+        }
+        .tip {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 6px;
+            padding-left: 5px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .copy-btn, .open-btn, .safe-btn, .engine-btn {
+            padding: 7px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 100px;
+            justify-content: center;
+        }
+        .copy-btn { background: linear-gradient(to right, #2196F3, #0d47a1); color: white; }
+        .open-btn { background: linear-gradient(to right, #10b981, #047857); color: white; }
+        .safe-btn { background: linear-gradient(to right, #8b5cf6, #7c3aed); color: white; }
+        .engine-btn { background: linear-gradient(to right, #64748b, #334155); color: white; }
+        .history {
+            margin-top: 25px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+        .history h3 {
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .history-item {
+            padding: 6px 0;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            background: var(--bg-secondary);
+            margin: 12% auto;
+            padding: 20px;
+            width: 92%;
+            max-width: 550px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .notification {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: var(--success);
+            color: #000;
+            padding: 10px 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: none;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            .file-types { grid-template-columns: repeat(2, 1fr); }
+            .complexity-selector, .templates, .action-buttons, .btn-group {
+                flex-direction: column;
+            }
+            .complexity-btn, .templates button, .action-buttons button {
+                min-width: auto;
+            }
+            h1 { font-size: 1.5rem; }
+        }
+        @media (max-width: 380px) {
+            .file-types { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    <div class="container">
+        <h1><i class="fas fa-film"></i> Advanced Dork Generator</h1>
+        <div class="warning">
+            ⚠️ <strong>Legal Notice:</strong> For <strong>authorized testing & public content only</strong>. 
+            Do not use for copyrighted or private data.
+        </div>
+        <div class="project-manager">
+            <label>📁 My Projects</label>
+            <div class="project-list" id="projectList"></div>
+            <button onclick="newProject()" style="margin-top:8px; padding:5px 8px; font-size:0.8rem; background:#334155; color:white; border:none; border-radius:5px;">
+                + New Project
+            </button>
+        </div>
+        <div class="input-group">
+            <label for="searchTerm">Search Term:</label>
+            <input type="text" id="searchTerm" placeholder="e.g., backup, config, software">
+            <div id="suggestions" style="margin-top:6px; font-size:0.8rem; color:#94a3b8;"></div>
+        </div>
+        <div class="input-group">
+            <label>Dork Complexity:</label>
+            <div class="complexity-selector">
+                <button class="complexity-btn active" data-level="basic">🟢 Basic</button>
+                <button class="complexity-btn" data-level="advanced">🟡 Advanced</button>
+                <button class="complexity-btn" data-level="expert">🔴 Expert</button>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Advanced Filters (optional):</label>
+            <input type="text" id="siteFilter" placeholder="e.g., site:archive.org">
+            <input type="text" id="excludeFilter" placeholder="e.g., -login -auth" style="margin-top:6px;">
+        </div>
+        <div class="preview-box" id="previewBox">
+            Live Preview: <span id="livePreview">"term" filetype:pdf</span>
+        </div>
+        <div class="input-group">
+            <label>Quick Templates:</label>
+            <div class="templates">
+                <button onclick="useTemplate('\"Interstellar\" site:archive.org')">Public Movies</button>
+                <button onclick="useTemplate('intitle:\"index of\" .env')">Env Files</button>
+                <button onclick="useTemplate('\"backup\" ext:sql')">SQL Backup</button>
+                <button onclick="useTemplate('\"Pakistani drama\" site:archive.org')">Pakistani Drama</button>
+            </div>
+        </div>
+        <div class="input-group">
+            <label>Select File Types:</label>
+            <div class="file-types">
+                <div class="file-type-box" data-type="all">
+                    <input type="checkbox" id="all">
+                    <label for="all">All Types</label>
+                </div>
+                <div class="file-type-box" data-type="documents">
+                    <input type="checkbox" id="documents">
+                    <label for="documents">Documents</label>
+                </div>
+                <div class="file-type-box" data-type="software">
+                    <input type="checkbox" id="software">
+                    <label for="software">Software</label>
+                </div>
+                <div class="file-type-box" data-type="archives">
+                    <input type="checkbox" id="archives">
+                    <label for="archives">Archives</label>
+                </div>
+                <div class="file-type-box" data-type="configs">
+                    <input type="checkbox" id="configs">
+                    <label for="configs">Configs</label>
+                </div>
+                <div class="file-type-box" data-type="videos">
+                    <input type="checkbox" id="videos">
+                    <label for="videos">Videos</label>
+                </div>
+                <div class="file-type-box" data-type="cracked">
+                    <input type="checkbox" id="cracked">
+                    <label for="cracked">Cracked (Red-Team)</label>
+                </div>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button id="generateBtn"><i class="fas fa-bolt"></i> Generate Dorks</button>
+            <div style="position:relative; flex:1; min-width:130px;">
+                <button id="exportBtn"><i class="fas fa-file-export"></i> Export</button>
+                <div class="export-menu" id="exportMenu">
+                    <div onclick="exportAs('txt')">📄 TXT</div>
+                    <div onclick="exportAs('md')">📝 Markdown</div>
+                    <div onclick="exportAs('csv')">📊 CSV</div>
+                    <div onclick="exportAs('json')">🧩 JSON</div>
+                </div>
+            </div>
+            <button id="saveBtn"><i class="fas fa-save"></i> Save Project</button>
+        </div>
+        <div class="result" id="result">
+            <h2><i class="fas fa-terminal"></i> Generated Dorks</h2>
+            <div id="dorkResults"></div>
+        </div>
+        <div class="history" id="historySection">
+            <h3><i class="fas fa-history"></i> Recent Searches</h3>
+            <div id="historyList"></div>
+        </div>
+    </div>
+
+    <!-- Cracked Warning Modal -->
+    <div id="crackedWarningModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('crackedWarningModal').style.display='none'">&times;</span>
+            <h2 style="color:#ef4444; margin-bottom:12px;">⚠️ Red-Team Use Only</h2>
+            <p>Only for authorized penetration testing.</p>
+            <button onclick="confirmCracked()" style="background:#ef4444; color:white; padding:8px 16px; border:none; border-radius:6px; width:100%; margin-top:10px;">
+                I Confirm Authorization
+            </button>
+        </div>
+    </div>
+
+    <!-- Cracked Type Selector Modal -->
+    <div id="crackedTypeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('crackedTypeModal').style.display='none'">&times;</span>
+            <h2 style="color:#ef4444; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Select Target Types</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; font-size:0.85rem;">
+                <div><input type="checkbox" id="win" onchange="toggleCrackedExt('win', ['exe','msi'])"> <label for="win">Windows (.exe, .msi)</label></div>
+                <div><input type="checkbox" id="android" onchange="toggleCrackedExt('android', ['apk'])"> <label for="android">Android (.apk)</label></div>
+                <div><input type="checkbox" id="mac" onchange="toggleCrackedExt('mac', ['dmg'])"> <label for="mac">macOS (.dmg)</label></div>
+                <div><input type="checkbox" id="linux" onchange="toggleCrackedExt('linux', ['sh','deb'])"> <label for="linux">Linux (.sh, .deb)</label></div>
+                <div><input type="checkbox" id="scripts" onchange="toggleCrackedExt('scripts', ['py','js'])"> <label for="scripts">Scripts (.py, .js)</label></div>
+            </div>
+            <button onclick="applyCrackedSelection()" style="background:#ef4444; color:white; padding:8px 16px; border:none; border-radius:6px; width:100%; margin-top:8px;">
+                Confirm Selection
+            </button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">Ready to generate!</div>
+
+    <div id="disclaimerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('disclaimerModal').style.display='none'">&times;</span>
+            <h2 style="color:var(--accent); margin-bottom:12px;">⚠️ Legal Notice</h2>
+            <p>Use only for <strong>ethical & authorized purposes</strong>.</p>
+            <p style="margin:10px 0; color:#ef4444;">
+                ❌ Do not search for:
+                <ul style="margin-left:18px; margin-top:8px; font-size:0.85rem;">
+                    <li>Pirated content</li>
+                    <li>Private data</li>
+                    <li>Passwords without permission</li>
+                </ul>
+            </p>
+            <p>✅ Use: <code>archive.org</code>, <code>.edu</code>, public datasets.</p>
+        </div>
+    </div>
+
+    <script>
+        // =============== State ===============
+        let currentProject = 'Default Project';
+        let crackedConfirmed = false;
+        let searchCount = 0;
+        let currentComplexity = 'basic';
+        let selectedCrackedTypes = [];
+
+        // =============== File Types ===============
+        const fileTypes = {
+            documents: ['pdf', 'docx', 'txt', 'pptx'],
+            software: ['exe', 'apk', 'dmg', 'msi'],
+            archives: ['zip', 'rar', '7z', 'tar'],
+            configs: ['env', 'json', 'xml', 'yml', 'sql'],
+            videos: ['mp4', 'mkv', 'avi', 'mov']
+        };
+
+        const searchEngines = {
+            google: "https://www.google.com/search?q=",
+            bing: "https://www.bing.com/search?q=",
+            duckduckgo: "https://duckduckgo.com/?q="
+        };
+
+        // =============== Theme Toggle ===============
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+            icon.className = 'fas fa-sun';
+        }
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                icon.className = 'fas fa-sun';
+            } else {
+                localStorage.setItem('theme', 'dark');
+                icon.className = 'fas fa-moon';
+            }
+        });
+
+        // =============== Complexity Buttons ===============
+        document.querySelectorAll('.complexity-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.complexity-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentComplexity = this.dataset.level;
+                updatePreview();
+            });
+        });
+
+        // =============== File Type Selection ===============
+        document.querySelectorAll('.file-type-box').forEach(box => {
+            box.addEventListener('click', function(e) {
+                if (e.target.tagName === 'INPUT') return;
+                const checkbox = this.querySelector('input');
+                if (this.dataset.type === 'cracked' && !checkbox.checked && !crackedConfirmed) {
+                    document.getElementById('crackedWarningModal').style.display = 'block';
+                    return;
+                }
+                checkbox.checked = !checkbox.checked;
+                this.classList.toggle('selected', checkbox.checked);
+                if (this.dataset.type === 'all') {
+                    const isChecked = checkbox.checked;
+                    document.querySelectorAll('.file-type-box').forEach(b => {
+                        if (b.dataset.type !== 'all') {
+                            const cb = b.querySelector('input');
+                            cb.checked = isChecked;
+                            b.classList.toggle('selected', isChecked);
+                        }
+                    });
+                }
+                updatePreview();
+            });
+        });
+
+        // =============== Cracked Flow ===============
+        function confirmCracked() {
+            crackedConfirmed = true;
+            document.getElementById('crackedWarningModal').style.display = 'none';
+            showCrackedTypeSelector();
+        }
+
+        function showCrackedTypeSelector() {
+            selectedCrackedTypes = [];
+            ['win','android','mac','linux','scripts'].forEach(id => {
+                document.getElementById(id).checked = false;
+            });
+            document.getElementById('crackedTypeModal').style.display = 'block';
+        }
+
+        function toggleCrackedExt(platform, exts) {
+            if (document.getElementById(platform).checked) {
+                selectedCrackedTypes.push(...exts);
+            } else {
+                selectedCrackedTypes = selectedCrackedTypes.filter(e => !exts.includes(e));
+            }
+        }
+
+        function applyCrackedSelection() {
+            if (selectedCrackedTypes.length === 0) {
+                alert('Select at least one type.');
+                return;
+            }
+            document.getElementById('crackedTypeModal').style.display = 'none';
+            generateDorks();
+        }
+
+        // =============== Preview & Templates ===============
+        function updatePreview() {
+            const term = document.getElementById('searchTerm').value.trim() || 'term';
+            let preview = `"${term}"`;
+
+            const selectedBoxes = Array.from(document.querySelectorAll('.file-type-box input:checked'))
+                .filter(input => input.id !== 'all' && input.id !== 'cracked');
+            
+            if (selectedBoxes.length > 0) {
+                const firstType = selectedBoxes[0].id;
+                const ext = fileTypes[firstType] ? fileTypes[firstType][0] : 'txt';
+                if (currentComplexity === 'basic') {
+                    preview += ` filetype:${ext}`;
+                } else if (currentComplexity === 'advanced') {
+                    preview += ` filetype:${ext} site:archive.org`;
+                } else {
+                    preview += ` intitle:"index of" ext:${ext}`;
+                }
+            } else if (document.getElementById('cracked').checked) {
+                preview += ' crack';
+            }
+
+            document.getElementById('livePreview').textContent = preview;
+        }
+
+        function useTemplate(template) {
+            document.getElementById('searchTerm').value = template;
+            updatePreview();
+        }
+
+        document.getElementById('searchTerm').addEventListener('input', updatePreview);
+
+        // =============== Generate Dorks ===============
+        function generateDorks() {
+            const term = document.getElementById('searchTerm').value.trim();
+            if (!term) { alert('Enter a search term!'); return; }
+
+            const siteFilter = document.getElementById('siteFilter').value.trim();
+            const excludeFilter = document.getElementById('excludeFilter').value.trim();
+
+            let selected = [];
+            const all = document.getElementById('all').checked;
+            const cracked = document.getElementById('cracked').checked;
+
+            if (all) {
+                selected = [...Object.keys(fileTypes), ...(cracked ? ['cracked'] : [])];
+            } else {
+                document.querySelectorAll('.file-type-box input:checked').forEach(input => {
+                    if (input.id !== 'all') selected.push(input.id);
+                });
+            }
+
+            if (selected.length === 0) { alert('Select at least one type!'); return; }
+            if (cracked && !crackedConfirmed) {
+                document.getElementById('crackedWarningModal').style.display = 'block';
+                return;
+            }
+            if (cracked && selectedCrackedTypes.length === 0) {
+                showCrackedTypeSelector();
+                return;
+            }
+
+            let baseQuery = `"${term}"`;
+            if (siteFilter) baseQuery += ` ${siteFilter}`;
+            if (excludeFilter) baseQuery += ` ${excludeFilter}`;
+
+            const results = document.getElementById('dorkResults');
+            results.innerHTML = '';
+
+            selected.forEach(type => {
+                if (type === 'cracked') {
+                    selectedCrackedTypes.forEach(ext => {
+                        let dorks = [];
+                        if (currentComplexity === 'basic') {
+                            dorks = [`${baseQuery} filetype:${ext}`];
+                        } else if (currentComplexity === 'advanced') {
+                            dorks = [
+                                `${baseQuery} filetype:${ext}`,
+                                `${baseQuery} ext:${ext}`
+                            ];
+                        } else {
+                            dorks = [
+                                `${baseQuery} filetype:${ext}`,
+                                `${baseQuery} ext:${ext}`,
+                                `inurl:${ext} "${term}"${siteFilter ? ' ' + siteFilter : ''}`
+                            ];
+                        }
+                        dorks.forEach((dork, i) => {
+                            addDorkItem(dork, `Cracked: .${ext.toUpperCase()} – Style ${i+1}`, 
+                                '⚠️ Red-team use only.', 0, 'Coming Soon', true);
+                        });
+                    });
+                } else {
+                    const exts = fileTypes[type] || [];
+                    exts.forEach(ext => {
+                        let dorks = [];
+                        if (currentComplexity === 'basic') {
+                            dorks = [`${baseQuery} filetype:${ext}`];
+                        } else if (currentComplexity === 'advanced') {
+                            dorks = [
+                                `${baseQuery} filetype:${ext}`,
+                                `${baseQuery} ext:${ext}`
+                            ];
+                        } else {
+                            dorks = [
+                                `${baseQuery} filetype:${ext}`,
+                                `${baseQuery} ext:${ext}`,
+                                `inurl:${ext} "${term}"${siteFilter ? ' ' + siteFilter : ''}`
+                            ];
+                        }
+                        dorks.forEach((dork, i) => {
+                            addDorkItem(dork, `${ext.toUpperCase()} – Style ${i+1}`, 
+                                `Searches for public ${ext} files.`, 0, 'Coming Soon', false);
+                        });
+                    });
+                }
+            });
+
+            document.getElementById('result').style.display = 'block';
+            saveToHistory(term);
+        }
+
+        function addDorkItem(dork, title, tip, score, estResults, isCracked) {
+            const div = document.createElement('div');
+            div.className = 'dork-item';
+            div.innerHTML = `
+                <div class="dork-title">
+                    <span>${title}</span>
+                    <span>Score: Coming Soon</span>
+                </div>
+                <div class="dork-command">${dork}</div>
+                <div class="tip"><i class="fas fa-info-circle"></i> ${tip} 📊 Estimated: ${estResults}</div>
+                <div class="btn-group">
+                    <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                    <button class="open-btn" data-engine="google"><i class="fab fa-google"></i> Google</button>
+                    <button class="engine-btn" data-engine="bing"><i class="fab fa-microsoft"></i> Bing</button>
+                </div>
+            `;
+            document.getElementById('dorkResults').appendChild(div);
+        }
+
+        // =============== Button Actions ===============
+        document.getElementById('dorkResults').addEventListener('click', function(e) {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            const dorkItem = btn.closest('.dork-item');
+            const dork = dorkItem.querySelector('.dork-command').textContent;
+            const engine = btn.dataset.engine;
+            if (btn.classList.contains('copy-btn')) {
+                copyText(dork);
+                const orig = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => btn.innerHTML = orig, 1500);
+            } else {
+                const url = searchEngines[engine] + encodeURIComponent(dork);
+                window.open(url, '_blank');
+            }
+        });
+
+        function copyText(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+        }
+
+        // =============== Other Functions ===============
+        function saveToHistory(term) {
+            const history = JSON.parse(localStorage.getItem('dorkHistory') || '[]');
+            history.unshift({ term, date: new Date().toLocaleString() });
+            localStorage.setItem('dorkHistory', JSON.stringify(history.slice(0, 5)));
+            loadHistory();
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('dorkHistory') || '[]');
+            const list = document.getElementById('historyList');
+            list.innerHTML = '';
+            history.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.textContent = `${item.term} — ${item.date}`;
+                list.appendChild(div);
+            });
+        }
+
+        function newProject() {
+            const name = prompt("Project name:");
+            if (name) currentProject = name;
+        }
+
+        function saveProject() {
+            showNotification('Project saved!');
+        }
+
+        function exportAs(format) {
+            alert('Export feature ready in next update!');
+        }
+
+        function showNotification(msg) {
+            const notif = document.getElementById('notification');
+            notif.textContent = msg;
+            notif.style.display = 'block';
+            setTimeout(() => notif.style.display = 'none', 2500);
+        }
+
+        // =============== Buttons ===============
+        document.getElementById('generateBtn').addEventListener('click', generateDorks);
+        document.getElementById('saveBtn').addEventListener('click', saveProject);
+
+        // =============== Load ===============
+        window.addEventListener('load', function() {
+            loadHistory();
+            if (!localStorage.getItem('disclaimerAccepted')) {
+                document.getElementById('disclaimerModal').style.display = 'block';
+                localStorage.setItem('disclaimerAccepted', 'true');
+            }
+            showNotification('Tool loaded! Ready for ethical use.');
+        });
+    </script>
+</body>
+</html>
