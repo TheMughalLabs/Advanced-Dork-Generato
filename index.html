@@ -28,36 +28,36 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
             transition: background 0.3s, color 0.3s;
         }
         .container {
             max-width: 950px;
             margin: 0 auto;
             background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid var(--border);
         }
         h1 {
             text-align: center;
             margin-bottom: 15px;
-            font-size: 1.8rem;
+            font-size: 2.1rem;
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
         }
         .theme-toggle {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -68,53 +68,51 @@
         .warning {
             background: rgba(239, 68, 68, 0.1);
             border-left: 4px solid var(--accent);
-            padding: 12px;
+            padding: 14px;
             border-radius: 0 10px 10px 0;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
             line-height: 1.5;
         }
-        .input-group { margin-bottom: 18px; }
+        .input-group { margin-bottom: 20px; }
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            font-size: 0.95rem;
         }
         input[type="text"] {
             width: 100%;
-            padding: 11px 12px;
+            padding: 12px 14px;
             border-radius: 10px;
             border: 1px solid var(--border);
             background: var(--bg-primary);
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         .file-types {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
-            margin: 15px 0;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 18px 0;
         }
         .file-type-box {
             background: var(--bg-primary);
             border: 2px solid var(--border);
             border-radius: 10px;
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
             text-align: center;
             transition: all 0.2s;
-            font-size: 0.85rem;
         }
         .file-type-box.selected {
             border-color: var(--accent);
             background: rgba(239, 68, 68, 0.1);
         }
         .file-type-box input { display: none; }
-        .file-type-box label { cursor: pointer; font-weight: 500; }
+        .file-type-box label { cursor: pointer; font-weight: 500; font-size: 0.9rem; }
         .complexity-selector {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             margin: 10px 0;
         }
         .complexity-btn {
@@ -125,8 +123,7 @@
             color: var(--text-primary);
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.8rem;
-            text-align: center;
+            font-size: 0.85rem;
         }
         .complexity-btn.active {
             border-color: var(--accent);
@@ -136,62 +133,88 @@
         .templates {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px 0;
+            gap: 10px;
+            margin: 15px 0;
         }
         .templates button {
             flex: 1;
-            min-width: 110px;
-            padding: 7px;
+            min-width: 120px;
+            padding: 8px;
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border);
             color: var(--text-primary);
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+        }
+        .cracked-buttons {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .cracked-buttons h4 {
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        .cracked-buttons .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .cracked-buttons button {
+            padding: 8px 12px;
+            background: rgba(30, 41, 59, 0.7);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
         }
         .project-manager {
-            margin: 18px 0;
-            padding: 12px;
+            margin: 20px 0;
+            padding: 15px;
             background: rgba(30, 41, 59, 0.3);
             border-radius: 10px;
         }
         .project-list {
-            margin-top: 8px;
-            max-height: 120px;
+            margin-top: 10px;
+            max-height: 150px;
             overflow-y: auto;
-            font-size: 0.85rem;
         }
         .project-item {
-            padding: 5px 0;
+            padding: 6px 0;
             cursor: pointer;
             color: #94a3b8;
+            font-size: 0.9rem;
         }
         .project-item:hover { color: var(--accent); }
         .preview-box {
             background: rgba(30, 41, 59, 0.3);
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
-            margin: 12px 0;
+            margin: 15px 0;
             font-family: monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border-left: 3px solid var(--accent);
         }
         .action-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 18px 0;
+            gap: 12px;
+            margin: 20px 0;
         }
         .action-buttons button {
             flex: 1;
-            min-width: 130px;
-            padding: 10px;
+            min-width: 150px;
+            padding: 12px;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         #generateBtn {
             background: linear-gradient(to right, var(--accent), #b91c1c);
@@ -219,44 +242,40 @@
             cursor: pointer;
             text-align: center;
             border-bottom: 1px solid var(--border);
-            font-size: 0.9rem;
         }
         .export-menu div:hover { background: rgba(30, 41, 59, 0.5); }
         .result {
-            margin-top: 20px;
+            margin-top: 25px;
             display: none;
         }
         .result h2 {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             color: var(--accent);
-            font-size: 1.4rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .dork-item {
             background: var(--bg-primary);
             border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
             border: 1px solid var(--border);
-            font-size: 0.95rem;
         }
         .dork-title {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #94a3b8;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
             justify-content: space-between;
-            flex-wrap: wrap;
         }
         .effectiveness-bar {
-            height: 5px;
+            height: 6px;
             background: #334155;
             border-radius: 3px;
-            margin: 6px 0;
+            margin: 8px 0;
             overflow: hidden;
         }
         .effectiveness-fill {
@@ -266,36 +285,36 @@
         .dork-command {
             background: rgba(0, 0, 0, 0.2);
             color: #fbbf24;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             word-break: break-all;
-            font-size: 0.95rem;
-            margin: 8px 0;
+            font-size: 1rem;
+            margin: 10px 0;
             border-left: 3px solid var(--accent);
         }
         .tip {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #64748b;
-            margin-top: 6px;
+            margin-top: 8px;
             padding-left: 5px;
         }
         .btn-group {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             margin-top: 10px;
             flex-wrap: wrap;
         }
         .copy-btn, .open-btn, .safe-btn, .engine-btn {
-            padding: 7px 12px;
+            padding: 8px 14px;
             border: none;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 5px;
-            min-width: 100px;
+            gap: 6px;
+            min-width: 110px;
             justify-content: center;
         }
         .copy-btn { background: linear-gradient(to right, #2196F3, #0d47a1); color: white; }
@@ -303,18 +322,17 @@
         .safe-btn { background: linear-gradient(to right, #8b5cf6, #7c3aed); color: white; }
         .engine-btn { background: linear-gradient(to right, #64748b, #334155); color: white; }
         .history {
-            margin-top: 25px;
-            padding-top: 18px;
+            margin-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid var(--border);
         }
         .history h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--accent);
-            font-size: 1.2rem;
         }
         .history-item {
-            padding: 6px 0;
-            font-size: 0.85rem;
+            padding: 8px 0;
+            font-size: 0.9rem;
             color: #94a3b8;
         }
         .modal {
@@ -329,45 +347,36 @@
         }
         .modal-content {
             background: var(--bg-secondary);
-            margin: 12% auto;
-            padding: 20px;
-            width: 92%;
-            max-width: 550px;
-            border-radius: 14px;
+            margin: 10% auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 16px;
             border: 1px solid var(--border);
-            font-size: 0.9rem;
+            text-align: center;
         }
         .close {
             float: right;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
         }
         .notification {
             position: fixed;
-            bottom: 15px;
-            right: 15px;
+            bottom: 20px;
+            right: 20px;
             background: var(--success);
             color: #000;
-            padding: 10px 16px;
+            padding: 12px 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             z-index: 2000;
             display: none;
-            font-size: 0.9rem;
         }
         @media (max-width: 600px) {
-            .file-types { grid-template-columns: repeat(2, 1fr); }
-            .complexity-selector, .templates, .action-buttons, .btn-group {
-                flex-direction: column;
-            }
-            .complexity-btn, .templates button, .action-buttons button {
-                min-width: auto;
-            }
-            h1 { font-size: 1.5rem; }
-        }
-        @media (max-width: 380px) {
             .file-types { grid-template-columns: 1fr; }
+            .action-buttons, .btn-group { flex-direction: column; }
+            .complexity-selector { flex-direction: column; }
         }
     </style>
 </head>
@@ -376,22 +385,24 @@
         <i class="fas fa-moon"></i>
     </div>
     <div class="container">
-        <h1><i class="fas fa-film"></i> Advanced Dork Generator</h1>
+        <h1><i class="fas fa-film"></i> Advanced Dork Generator + Video Finder</h1>
         <div class="warning">
-            ⚠️ <strong>Legal Notice:</strong> For <strong>authorized testing & public content only</strong>. 
-            Do not use for copyrighted or private data.
+            ⚠️ <strong>Legal Notice:</strong> This tool is for <strong>authorized penetration testing, educational research, and public domain content only</strong>. 
+            Do not use to find copyrighted movies or pirated content. Always respect copyright laws.
         </div>
         <div class="project-manager">
             <label>📁 My Projects</label>
             <div class="project-list" id="projectList"></div>
-            <button onclick="newProject()" style="margin-top:8px; padding:5px 8px; font-size:0.8rem; background:#334155; color:white; border:none; border-radius:5px;">
+            <button onclick="newProject()" style="margin-top:10px; padding:6px 10px; font-size:0.85rem; background:#334155; color:white; border:none; border-radius:5px;">
                 + New Project
             </button>
         </div>
         <div class="input-group">
-            <label for="searchTerm">Search Term:</label>
-            <input type="text" id="searchTerm" placeholder="e.g., backup, config, software">
-            <div id="suggestions" style="margin-top:6px; font-size:0.8rem; color:#94a3b8;"></div>
+            <label for="searchTerm">Search Term (e.g., Interstellar, CapCut, Pakistani Drama):</label>
+            <input type="text" id="searchTerm" placeholder="e.g., Interstellar, CapCut template, public domain film">
+            <div id="suggestions" style="margin-top:8px; font-size:0.85rem; color:#94a3b8;">
+                💡 Smart Suggestions: Coming Soon
+            </div>
         </div>
         <div class="input-group">
             <label>Dork Complexity:</label>
@@ -402,20 +413,20 @@
             </div>
         </div>
         <div class="input-group">
-            <label>Advanced Filters (optional):</label>
-            <input type="text" id="siteFilter" placeholder="e.g., site:archive.org">
-            <input type="text" id="excludeFilter" placeholder="e.g., -login -auth" style="margin-top:6px;">
+            <label>Advanced Filters:</label>
+            <input type="text" id="siteFilter" placeholder="e.g., site:archive.org (optional)">
+            <input type="text" id="excludeFilter" placeholder="e.g., -login -auth (optional)" style="margin-top:8px;">
         </div>
         <div class="preview-box" id="previewBox">
-            Live Preview: <span id="livePreview">"term" filetype:pdf</span>
+            Live Preview: <span id="livePreview">"term" filetype:mp4</span>
         </div>
         <div class="input-group">
             <label>Quick Templates:</label>
             <div class="templates">
-                <button onclick="useTemplate('\"Interstellar\" site:archive.org')">Public Movies</button>
-                <button onclick="useTemplate('intitle:\"index of\" .env')">Env Files</button>
-                <button onclick="useTemplate('\"backup\" ext:sql')">SQL Backup</button>
-                <button onclick="useTemplate('\"Pakistani drama\" site:archive.org')">Pakistani Drama</button>
+                <button onclick="showTemplateComingSoon()">Public Domain Movies</button>
+                <button onclick="showTemplateComingSoon()">CapCut Templates</button>
+                <button onclick="showTemplateComingSoon()">Env Files</button>
+                <button onclick="showTemplateComingSoon()">Pakistani Dramas</button>
             </div>
         </div>
         <div class="input-group">
@@ -450,10 +461,21 @@
                     <label for="cracked">Cracked (Red-Team)</label>
                 </div>
             </div>
+            <div class="cracked-buttons" id="crackedButtons">
+                <h4>Select Target File Types:</h4>
+                <div class="btn-group">
+                    <button onclick="useCrackedType('exe')">Windows (.exe)</button>
+                    <button onclick="useCrackedType('msi')">Windows (.msi)</button>
+                    <button onclick="useCrackedType('apk')">Android (.apk)</button>
+                    <button onclick="useCrackedType('dmg')">macOS (.dmg)</button>
+                    <button onclick="useCrackedType('sh')">Linux (.sh)</button>
+                    <button onclick="useCrackedType('py')">Script (.py)</button>
+                </div>
+            </div>
         </div>
         <div class="action-buttons">
-            <button id="generateBtn"><i class="fas fa-bolt"></i> Generate Dorks</button>
-            <div style="position:relative; flex:1; min-width:130px;">
+            <button id="generateBtn"><i class="fas fa-bolt"></i> Generate Dorks (Ctrl+Enter)</button>
+            <div style="position:relative; flex:1; min-width:150px;">
                 <button id="exportBtn"><i class="fas fa-file-export"></i> Export</button>
                 <div class="export-menu" id="exportMenu">
                     <div onclick="exportAs('txt')">📄 TXT</div>
@@ -462,10 +484,10 @@
                     <div onclick="exportAs('json')">🧩 JSON</div>
                 </div>
             </div>
-            <button id="saveBtn"><i class="fas fa-save"></i> Save Project</button>
+            <button id="saveBtn"><i class="fas fa-file-export"></i> Export Project</button>
         </div>
         <div class="result" id="result">
-            <h2><i class="fas fa-terminal"></i> Generated Dorks</h2>
+            <h2><i class="fas fa-terminal"></i> Generated Dork Commands</h2>
             <div id="dorkResults"></div>
         </div>
         <div class="history" id="historySection">
@@ -474,52 +496,54 @@
         </div>
     </div>
 
+    <!-- Template Coming Soon Modal -->
+    <div id="templateComingSoonModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('templateComingSoonModal').style.display='none'">&times;</span>
+            <h2 style="color:#ff4d4d;">Coming Soon</h2>
+            <p>This template feature will be available in a future update.</p>
+        </div>
+    </div>
+
     <!-- Cracked Warning Modal -->
     <div id="crackedWarningModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('crackedWarningModal').style.display='none'">&times;</span>
-            <h2 style="color:#ef4444; margin-bottom:12px;">⚠️ Red-Team Use Only</h2>
-            <p>Only for authorized penetration testing.</p>
-            <button onclick="confirmCracked()" style="background:#ef4444; color:white; padding:8px 16px; border:none; border-radius:6px; width:100%; margin-top:10px;">
-                I Confirm Authorization
+            <h2 style="color:#ef4444; margin-bottom:15px;">⚠️ Red-Team Use Only</h2>
+            <p>Cracked software dorks may lead to:</p>
+            <ul style="margin:10px 0 15px 20px; color:#f87171;">
+                <li>Copyright-infringing content</li>
+                <li>Malware-infected files</li>
+                <li>Legal consequences</li>
+            </ul>
+            <p><strong>Only proceed if you are:</strong></p>
+            <ul style="margin:10px 0 15px 20px;">
+                <li>An authorized penetration tester</li>
+                <li>Working under a signed contract</li>
+                <li>In a controlled lab environment</li>
+            </ul>
+            <button onclick="confirmCracked()" style="background:#ef4444; color:white; padding:10px 20px; border:none; border-radius:6px; width:100%;">
+                I Understand & Confirm Authorization
             </button>
         </div>
     </div>
 
-    <!-- Cracked Type Selector Modal -->
-    <div id="crackedTypeModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="document.getElementById('crackedTypeModal').style.display='none'">&times;</span>
-            <h2 style="color:#ef4444; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Select Target Types</h2>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; font-size:0.85rem;">
-                <div><input type="checkbox" id="win" onchange="toggleCrackedExt('win', ['exe','msi'])"> <label for="win">Windows (.exe, .msi)</label></div>
-                <div><input type="checkbox" id="android" onchange="toggleCrackedExt('android', ['apk'])"> <label for="android">Android (.apk)</label></div>
-                <div><input type="checkbox" id="mac" onchange="toggleCrackedExt('mac', ['dmg'])"> <label for="mac">macOS (.dmg)</label></div>
-                <div><input type="checkbox" id="linux" onchange="toggleCrackedExt('linux', ['sh','deb'])"> <label for="linux">Linux (.sh, .deb)</label></div>
-                <div><input type="checkbox" id="scripts" onchange="toggleCrackedExt('scripts', ['py','js'])"> <label for="scripts">Scripts (.py, .js)</label></div>
-            </div>
-            <button onclick="applyCrackedSelection()" style="background:#ef4444; color:white; padding:8px 16px; border:none; border-radius:6px; width:100%; margin-top:8px;">
-                Confirm Selection
-            </button>
-        </div>
-    </div>
-
-    <div class="notification" id="notification">Ready to generate!</div>
-
+    <div class="notification" id="notification">Link copied to clipboard!</div>
     <div id="disclaimerModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="document.getElementById('disclaimerModal').style.display='none'">&times;</span>
-            <h2 style="color:var(--accent); margin-bottom:12px;">⚠️ Legal Notice</h2>
-            <p>Use only for <strong>ethical & authorized purposes</strong>.</p>
-            <p style="margin:10px 0; color:#ef4444;">
-                ❌ Do not search for:
-                <ul style="margin-left:18px; margin-top:8px; font-size:0.85rem;">
-                    <li>Pirated content</li>
-                    <li>Private data</li>
-                    <li>Passwords without permission</li>
+            <h2 style="color:var(--accent); margin-bottom:15px;">⚠️ Important Legal Notice</h2>
+            <p>This tool is for <strong>ethical hacking, authorized security assessments, educational research, and public domain content only</strong>.</p>
+            <p style="margin:15px 0; color:#ef4444;">
+                ⚠️ Do not use to find:
+                <ul style="margin-left:20px; margin-top:10px;">
+                    <li>Pirated movies or TV shows</li>
+                    <li>Copyrighted content without permission</li>
+                    <li>Private/personal videos</li>
                 </ul>
             </p>
-            <p>✅ Use: <code>archive.org</code>, <code>.edu</code>, public datasets.</p>
+            <p>✅ Safe sources: <code>archive.org</code>, <code>.edu</code>, <code>.gov</code>, public YouTube links.</p>
+            <p><strong>Always respect copyright laws.</strong></p>
         </div>
     </div>
 
@@ -529,7 +553,7 @@
         let crackedConfirmed = false;
         let searchCount = 0;
         let currentComplexity = 'basic';
-        let selectedCrackedTypes = [];
+        let selectedCrackedExt = '';
 
         // =============== File Types ===============
         const fileTypes = {
@@ -537,9 +561,8 @@
             software: ['exe', 'apk', 'dmg', 'msi'],
             archives: ['zip', 'rar', '7z', 'tar'],
             configs: ['env', 'json', 'xml', 'yml', 'sql'],
-            videos: ['mp4', 'mkv', 'avi', 'mov']
+            videos: ['mp4', 'mkv', 'avi', 'mov', 'wmv', 'flv']
         };
-
         const searchEngines = {
             google: "https://www.google.com/search?q=",
             bing: "https://www.bing.com/search?q=",
@@ -565,6 +588,70 @@
             }
         });
 
+        // =============== File Type Selection ===============
+        document.querySelectorAll('.file-type-box').forEach(box => {
+            box.addEventListener('click', function(e) {
+                if (e.target.tagName === 'INPUT') return;
+                const checkbox = this.querySelector('input');
+                const isCracked = this.dataset.type === 'cracked';
+
+                if (isCracked && !checkbox.checked && !crackedConfirmed) {
+                    document.getElementById('crackedWarningModal').style.display = 'block';
+                    return;
+                }
+
+                checkbox.checked = !checkbox.checked;
+                this.classList.toggle('selected', checkbox.checked);
+
+                if (isCracked) {
+                    document.getElementById('crackedButtons').style.display = checkbox.checked ? 'block' : 'none';
+                    if (!checkbox.checked) selectedCrackedExt = '';
+                }
+
+                if (this.dataset.type === 'all') {
+                    const isChecked = checkbox.checked;
+                    document.querySelectorAll('.file-type-box').forEach(b => {
+                        if (b.dataset.type !== 'all') {
+                            const cb = b.querySelector('input');
+                            cb.checked = isChecked;
+                            b.classList.toggle('selected', isChecked);
+                        }
+                    });
+                    document.getElementById('crackedButtons').style.display = 'none';
+                }
+            });
+        });
+
+        // =============== Cracked Confirmation ===============
+        function confirmCracked() {
+            crackedConfirmed = true;
+            document.getElementById('cracked').checked = true;
+            document.querySelector('.file-type-box[data-type="cracked"]').classList.add('selected');
+            document.getElementById('crackedWarningModal').style.display = 'none';
+            document.getElementById('crackedButtons').style.display = 'block';
+        }
+
+        function useCrackedType(ext) {
+            selectedCrackedExt = ext;
+            generateDorks();
+        }
+
+        // =============== Template Coming Soon ===============
+        function showTemplateComingSoon() {
+            document.getElementById('templateComingSoonModal').style.display = 'block';
+        }
+
+        // =============== Preview ===============
+        function updatePreview() {
+            const term = document.getElementById('searchTerm').value.trim() || 'term';
+            let preview = `"${term}"`;
+            if (currentComplexity === 'advanced') preview += ` filetype:mp4 site:archive.org`;
+            if (currentComplexity === 'expert') preview += ` intitle:"index of" ext:mp4 inurl:video`;
+            document.getElementById('livePreview').textContent = preview;
+        }
+
+        document.getElementById('searchTerm').addEventListener('input', updatePreview);
+
         // =============== Complexity Buttons ===============
         document.querySelectorAll('.complexity-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -575,94 +662,122 @@
             });
         });
 
-        // =============== File Type Selection ===============
-        document.querySelectorAll('.file-type-box').forEach(box => {
-            box.addEventListener('click', function(e) {
-                if (e.target.tagName === 'INPUT') return;
-                const checkbox = this.querySelector('input');
-                if (this.dataset.type === 'cracked' && !checkbox.checked && !crackedConfirmed) {
-                    document.getElementById('crackedWarningModal').style.display = 'block';
-                    return;
-                }
-                checkbox.checked = !checkbox.checked;
-                this.classList.toggle('selected', checkbox.checked);
-                if (this.dataset.type === 'all') {
-                    const isChecked = checkbox.checked;
-                    document.querySelectorAll('.file-type-box').forEach(b => {
-                        if (b.dataset.type !== 'all') {
-                            const cb = b.querySelector('input');
-                            cb.checked = isChecked;
-                            b.classList.toggle('selected', isChecked);
-                        }
-                    });
-                }
-                updatePreview();
+        // =============== Project Management ===============
+        function newProject() {
+            const name = prompt("Enter project name:");
+            if (name) {
+                currentProject = name;
+                saveProject();
+                loadProjects();
+            }
+        }
+
+        function saveProject() {
+            const config = getCurrentConfig();
+            const projects = JSON.parse(localStorage.getItem('dorkProjects') || '{}');
+            projects[currentProject] = {
+                config,
+                lastModified: new Date().toLocaleString()
+            };
+            localStorage.setItem('dorkProjects', JSON.stringify(projects));
+            showNotification(`Project "${currentProject}" saved!`);
+            loadProjects(); // refresh list
+        }
+
+        function loadProjects() {
+            const projects = JSON.parse(localStorage.getItem('dorkProjects') || '{}');
+            const list = document.getElementById('projectList');
+            list.innerHTML = '';
+            Object.keys(projects).forEach(name => {
+                const div = document.createElement('div');
+                div.className = 'project-item';
+                div.textContent = name;
+                div.onclick = () => {
+                    currentProject = name;
+                    applyConfig(projects[name].config);
+                    showNotification(`Loaded: ${name}`);
+                };
+                list.appendChild(div);
             });
-        });
-
-        // =============== Cracked Flow ===============
-        function confirmCracked() {
-            crackedConfirmed = true;
-            document.getElementById('crackedWarningModal').style.display = 'none';
-            showCrackedTypeSelector();
         }
 
-        function showCrackedTypeSelector() {
-            selectedCrackedTypes = [];
-            ['win','android','mac','linux','scripts'].forEach(id => {
-                document.getElementById(id).checked = false;
+        function getCurrentConfig() {
+            return {
+                searchTerm: document.getElementById('searchTerm').value.trim(),
+                siteFilter: document.getElementById('siteFilter').value.trim(),
+                excludeFilter: document.getElementById('excludeFilter').value.trim(),
+                selectedTypes: Array.from(document.querySelectorAll('.file-type-box input:checked'))
+                    .filter(input => input.id !== 'all')
+                    .map(input => input.id),
+                allChecked: document.getElementById('all').checked,
+                crackedChecked: document.getElementById('cracked').checked,
+                crackedExt: selectedCrackedExt,
+                complexity: currentComplexity
+            };
+        }
+
+        function applyConfig(config) {
+            document.getElementById('searchTerm').value = config.searchTerm || '';
+            document.getElementById('siteFilter').value = config.siteFilter || '';
+            document.getElementById('excludeFilter').value = config.excludeFilter || '';
+            currentComplexity = config.complexity || 'basic';
+            document.querySelectorAll('.complexity-btn').forEach(btn => {
+                if (btn.dataset.level === currentComplexity) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
-            document.getElementById('crackedTypeModal').style.display = 'block';
-        }
-
-        function toggleCrackedExt(platform, exts) {
-            if (document.getElementById(platform).checked) {
-                selectedCrackedTypes.push(...exts);
-            } else {
-                selectedCrackedTypes = selectedCrackedTypes.filter(e => !exts.includes(e));
+            document.querySelectorAll('.file-type-box').forEach(box => {
+                const input = box.querySelector('input');
+                input.checked = false;
+                box.classList.remove('selected');
+            });
+            if (config.allChecked) {
+                document.getElementById('all').checked = true;
+                document.querySelector('.file-type-box[data-type="all"]').classList.add('selected');
             }
-        }
-
-        function applyCrackedSelection() {
-            if (selectedCrackedTypes.length === 0) {
-                alert('Select at least one type.');
-                return;
+            if (config.crackedChecked) {
+                crackedConfirmed = true;
+                document.getElementById('cracked').checked = true;
+                document.querySelector('.file-type-box[data-type="cracked"]').classList.add('selected');
+                document.getElementById('crackedButtons').style.display = 'block';
+                selectedCrackedExt = config.crackedExt || '';
             }
-            document.getElementById('crackedTypeModal').style.display = 'none';
-            generateDorks();
-        }
-
-        // =============== Preview & Templates ===============
-        function updatePreview() {
-            const term = document.getElementById('searchTerm').value.trim() || 'term';
-            let preview = `"${term}"`;
-
-            const selectedBoxes = Array.from(document.querySelectorAll('.file-type-box input:checked'))
-                .filter(input => input.id !== 'all' && input.id !== 'cracked');
-            
-            if (selectedBoxes.length > 0) {
-                const firstType = selectedBoxes[0].id;
-                const ext = fileTypes[firstType] ? fileTypes[firstType][0] : 'txt';
-                if (currentComplexity === 'basic') {
-                    preview += ` filetype:${ext}`;
-                } else if (currentComplexity === 'advanced') {
-                    preview += ` filetype:${ext} site:archive.org`;
-                } else {
-                    preview += ` intitle:"index of" ext:${ext}`;
+            (config.selectedTypes || []).forEach(type => {
+                if (type !== 'cracked') {
+                    const input = document.getElementById(type);
+                    if (input) {
+                        input.checked = true;
+                        input.parentElement.classList.add('selected');
+                    }
                 }
-            } else if (document.getElementById('cracked').checked) {
-                preview += ' crack';
-            }
-
-            document.getElementById('livePreview').textContent = preview;
-        }
-
-        function useTemplate(template) {
-            document.getElementById('searchTerm').value = template;
+            });
             updatePreview();
         }
 
-        document.getElementById('searchTerm').addEventListener('input', updatePreview);
+        // =============== Export Project ===============
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            const config = getCurrentConfig();
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentProject.replace(/\s+/g, '_')}_project.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showNotification('Project exported!');
+        });
+
+        // =============== Other Exports ===============
+        document.getElementById('exportBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('exportMenu').style.display = 'flex';
+        });
+        document.addEventListener('click', () => {
+            document.getElementById('exportMenu').style.display = 'none';
+        });
+
+        function exportAs(format) {
+            alert('Export results feature coming soon!');
+        }
 
         // =============== Generate Dorks ===============
         function generateDorks() {
@@ -689,8 +804,8 @@
                 document.getElementById('crackedWarningModal').style.display = 'block';
                 return;
             }
-            if (cracked && selectedCrackedTypes.length === 0) {
-                showCrackedTypeSelector();
+            if (cracked && !selectedCrackedExt) {
+                alert('Please select a cracked file type below.');
                 return;
             }
 
@@ -703,26 +818,25 @@
 
             selected.forEach(type => {
                 if (type === 'cracked') {
-                    selectedCrackedTypes.forEach(ext => {
-                        let dorks = [];
-                        if (currentComplexity === 'basic') {
-                            dorks = [`${baseQuery} filetype:${ext}`];
-                        } else if (currentComplexity === 'advanced') {
-                            dorks = [
-                                `${baseQuery} filetype:${ext}`,
-                                `${baseQuery} ext:${ext}`
-                            ];
-                        } else {
-                            dorks = [
-                                `${baseQuery} filetype:${ext}`,
-                                `${baseQuery} ext:${ext}`,
-                                `inurl:${ext} "${term}"${siteFilter ? ' ' + siteFilter : ''}`
-                            ];
-                        }
-                        dorks.forEach((dork, i) => {
-                            addDorkItem(dork, `Cracked: .${ext.toUpperCase()} – Style ${i+1}`, 
-                                '⚠️ Red-team use only.', 0, 'Coming Soon', true);
-                        });
+                    const ext = selectedCrackedExt;
+                    let dorks = [];
+                    if (currentComplexity === 'basic') {
+                        dorks = [`${baseQuery} filetype:${ext}`];
+                    } else if (currentComplexity === 'advanced') {
+                        dorks = [
+                            `${baseQuery} filetype:${ext}`,
+                            `${baseQuery} ext:${ext}`
+                        ];
+                    } else {
+                        dorks = [
+                            `${baseQuery} filetype:${ext}`,
+                            `${baseQuery} ext:${ext}`,
+                            `inurl:${ext} "${term}"${siteFilter ? ' ' + siteFilter : ''}`
+                        ];
+                    }
+                    dorks.forEach((dork, i) => {
+                        addDorkItem(dork, `Cracked: .${ext.toUpperCase()} – Style ${i+1}`, 
+                            '⚠️ FOR AUTHORIZED RED-TEAM USE ONLY.', 0, 'Coming Soon', true);
                     });
                 } else {
                     const exts = fileTypes[type] || [];
@@ -763,7 +877,7 @@
                     <span>Score: Coming Soon</span>
                 </div>
                 <div class="dork-command">${dork}</div>
-                <div class="tip"><i class="fas fa-info-circle"></i> ${tip} 📊 Estimated: ${estResults}</div>
+                <div class="tip"><i class="fas fa-info-circle"></i> ${tip} 📊 Estimated Results: ${estResults}</div>
                 <div class="btn-group">
                     <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
                     <button class="open-btn" data-engine="google"><i class="fab fa-google"></i> Google</button>
@@ -777,8 +891,7 @@
         document.getElementById('dorkResults').addEventListener('click', function(e) {
             const btn = e.target.closest('button');
             if (!btn) return;
-            const dorkItem = btn.closest('.dork-item');
-            const dork = dorkItem.querySelector('.dork-command').textContent;
+            const dork = btn.closest('.dork-item').querySelector('.dork-command').textContent;
             const engine = btn.dataset.engine;
             if (btn.classList.contains('copy-btn')) {
                 copyText(dork);
@@ -793,23 +906,19 @@
 
         function copyText(text) {
             if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+                navigator.clipboard.writeText(text);
             } else {
-                fallbackCopy(text);
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
             }
         }
 
-        function fallbackCopy(text) {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.style.position = 'fixed';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-        }
-
-        // =============== Other Functions ===============
+        // =============== History ===============
         function saveToHistory(term) {
             const history = JSON.parse(localStorage.getItem('dorkHistory') || '[]');
             history.unshift({ term, date: new Date().toLocaleString() });
@@ -829,38 +938,28 @@
             });
         }
 
-        function newProject() {
-            const name = prompt("Project name:");
-            if (name) currentProject = name;
-        }
-
-        function saveProject() {
-            showNotification('Project saved!');
-        }
-
-        function exportAs(format) {
-            alert('Export feature ready in next update!');
-        }
-
+        // =============== Notification ===============
         function showNotification(msg) {
             const notif = document.getElementById('notification');
             notif.textContent = msg;
             notif.style.display = 'block';
-            setTimeout(() => notif.style.display = 'none', 2500);
+            setTimeout(() => notif.style.display = 'none', 3000);
         }
 
-        // =============== Buttons ===============
+        // =============== Generate Button ===============
         document.getElementById('generateBtn').addEventListener('click', generateDorks);
-        document.getElementById('saveBtn').addEventListener('click', saveProject);
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') generateDorks();
+        });
 
         // =============== Load ===============
         window.addEventListener('load', function() {
+            loadProjects();
             loadHistory();
             if (!localStorage.getItem('disclaimerAccepted')) {
                 document.getElementById('disclaimerModal').style.display = 'block';
                 localStorage.setItem('disclaimerAccepted', 'true');
             }
-            showNotification('Tool loaded! Ready for ethical use.');
         });
     </script>
 </body>
