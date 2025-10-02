@@ -124,10 +124,19 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.85rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 8px rgba(255, 77, 77, 0.2);
+        }
+        .complexity-btn:hover {
+            box-shadow: 0 0 12px rgba(255, 77, 77, 0.4);
+        }
+        .complexity-btn:active {
+            transform: scale(0.96);
         }
         .complexity-btn.active {
             border-color: var(--accent);
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(239, 68, 68, 0.2);
             font-weight: bold;
         }
         .templates {
@@ -146,6 +155,15 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.85rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+        }
+        .templates button:hover {
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+        }
+        .templates button:active {
+            transform: scale(0.96);
         }
         .project-manager {
             margin: 20px 0;
@@ -189,6 +207,15 @@
             font-weight: 600;
             cursor: pointer;
             font-size: 1rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+        }
+        .action-buttons button:hover {
+            box-shadow: 0 0 16px rgba(255, 77, 77, 0.5);
+        }
+        .action-buttons button:active {
+            transform: scale(0.96);
         }
         #generateBtn {
             background: linear-gradient(to right, var(--accent), #b91c1c);
@@ -216,8 +243,13 @@
             cursor: pointer;
             text-align: center;
             border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
         }
-        .export-menu div:hover { background: rgba(30, 41, 59, 0.5); }
+        .export-menu div:hover {
+            background: rgba(30, 41, 59, 0.5);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+        }
         .result {
             margin-top: 25px;
             display: none;
@@ -290,11 +322,53 @@
             gap: 6px;
             min-width: 110px;
             justify-content: center;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
         }
-        .copy-btn { background: linear-gradient(to right, #2196F3, #0d47a1); color: white; }
-        .open-btn { background: linear-gradient(to right, #10b981, #047857); color: white; }
-        .safe-btn { background: linear-gradient(to right, #8b5cf6, #7c3aed); color: white; }
-        .engine-btn { background: linear-gradient(to right, #64748b, #334155); color: white; }
+        .copy-btn {
+            background: linear-gradient(to right, #2196F3, #0d47a1);
+            color: white;
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+        }
+        .copy-btn:hover {
+            box-shadow: 0 0 12px rgba(33, 150, 243, 0.5);
+        }
+        .copy-btn:active {
+            transform: scale(0.96);
+        }
+        .open-btn {
+            background: linear-gradient(to right, #10b981, #047857);
+            color: white;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+        }
+        .open-btn:hover {
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+        }
+        .open-btn:active {
+            transform: scale(0.96);
+        }
+        .safe-btn {
+            background: linear-gradient(to right, #8b5cf6, #7c3aed);
+            color: white;
+            box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+        }
+        .safe-btn:hover {
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+        }
+        .safe-btn:active {
+            transform: scale(0.96);
+        }
+        .engine-btn {
+            background: linear-gradient(to right, #64748b, #334155);
+            color: white;
+            box-shadow: 0 0 8px rgba(100, 116, 139, 0.3);
+        }
+        .engine-btn:hover {
+            box-shadow: 0 0 12px rgba(100, 116, 139, 0.5);
+        }
+        .engine-btn:active {
+            transform: scale(0.96);
+        }
         .history {
             margin-top: 30px;
             padding-top: 20px;
@@ -327,13 +401,22 @@
             max-width: 600px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            text-align: center;
         }
         .close {
             float: right;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+        }
+        .share-modal input {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: monospace;
         }
         .notification {
             position: fixed;
@@ -368,59 +451,83 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.9rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
         }
-        /* Onboarding Overlay */
-        #onboardingOverlay {
+        .cracked-sub-buttons button:hover {
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+        }
+        .cracked-sub-buttons button:active {
+            transform: scale(0.96);
+        }
+
+        /* =============== TOUR POPUP =============== */
+        #tourPopup {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 3000;
-            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: sans-serif;
         }
-        .onboarding-tooltip {
-            position: absolute;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-            max-width: 300px;
-            z-index: 3001;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-        .onboarding-tooltip h3 {
-            margin-bottom: 8px;
-            color: var(--accent);
-        }
-        .onboarding-tooltip p {
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        .onboarding-buttons {
+        #tourPopup > div {
+            background: #ff4d4d;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
-        }
-        .onboarding-buttons button {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
             cursor: pointer;
-            background: var(--accent);
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
+        }
+        #tourPopup p {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            max-width: 400px;
+            text-align: center;
             color: white;
         }
-        .onboarding-buttons button.skip {
-            background: #64748b;
+
+        /* =============== TOUR OVERLAY =============== */
+        #tourOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
         }
-        .highlight-element {
-            position: relative;
-            z-index: 3002;
-            box-shadow: 0 0 0 3px var(--accent), 0 0 20px rgba(255, 77, 77, 0.7) !important;
-            border-radius: 10px !important;
+        #tourHighlight {
+            position: absolute;
+            border-radius: 8px;
+            box-shadow: 0 0 0 9999px rgba(0,0,0,0.7), 0 0 0 3px #ff4d4d;
+            z-index: 10000;
         }
+        #tourTooltip {
+            position: absolute;
+            background: #1e293b;
+            color: #f1f5f9;
+            padding: 12px;
+            border-radius: 8px;
+            max-width: 280px;
+            z-index: 10001;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: none;
+        }
+
         @media (max-width: 600px) {
             .file-types { grid-template-columns: 1fr; }
             .action-buttons, .btn-group { flex-direction: column; }
@@ -488,10 +595,7 @@
                     <input type="checkbox" id="documents">
                     <label for="documents">Documents</label>
                 </div>
-                <div class="file-type-box" data-type="software">
-                    <input type="checkbox" id="software">
-                    <label for="software">Software</label>
-                </div>
+                <!-- Software removed -->
                 <div class="file-type-box" data-type="archives">
                     <input type="checkbox" id="archives">
                     <label for="archives">Archives</label>
@@ -538,28 +642,15 @@
             <div id="historyList"></div>
         </div>
     </div>
-
-    <!-- Onboarding Overlay -->
-    <div id="onboardingOverlay"></div>
-    <div class="onboarding-tooltip" id="onboardingTooltip" style="display:none;">
-        <h3 id="onboardingTitle">Search Term</h3>
-        <p id="onboardingText">Type what you're looking for.</p>
-        <div class="onboarding-buttons">
-            <button class="skip" onclick="skipOnboarding()">Skip</button>
-            <button onclick="nextOnboardingStep()">Next</button>
-        </div>
-    </div>
-
     <!-- Template Coming Soon Modal -->
     <div id="templateModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align:center;">
             <span class="close" onclick="document.getElementById('templateModal').style.display='none'">&times;</span>
             <h2 style="color:#ff4d4d;">Coming Soon</h2>
             <p>This feature will be available in a future update.</p>
         </div>
     </div>
-
-    <!-- Other Modals -->
+    <!-- Modals -->
     <div id="shareModal" class="modal">
         <div class="modal-content share-modal">
             <span class="close" onclick="document.getElementById('shareModal').style.display='none'">&times;</span>
@@ -611,6 +702,12 @@
         </div>
     </div>
 
+    <!-- TOUR POPUP (Appears once after disclaimer) -->
+    <div id="tourPopup">
+        <div onclick="startTour()">?</div>
+        <p>Click <strong>?</strong> to start an interactive tour.</p>
+    </div>
+
     <script>
         // =============== State ===============
         let currentProject = 'Default Project';
@@ -618,55 +715,83 @@
         let selectedCrackedType = null;
         let searchCount = 0;
         let currentComplexity = 'basic';
-        let onboardingStep = 0;
-        let isOnboarding = false;
-
         const searchEngines = {
             google: "https://www.google.com/search?q=",
             bing: "https://www.bing.com/search?q=",
             duckduckgo: "https://duckduckgo.com/?q="
         };
 
-        // =============== Onboarding Steps ===============
-        const onboardingSteps = [
-            {
-                element: "#searchTerm",
-                title: "Search Term",
-                text: "Type what you're looking for (e.g., Interstellar, backup)"
-            },
-            {
-                element: ".file-types",
-                title: "File Types",
-                text: "Select file types: Videos, Documents, Configs, etc."
-            },
-            {
-                element: ".complexity-selector",
-                title: "Dork Complexity",
-                text: "Choose Basic, Advanced, or Expert for different dork styles"
-            },
-            {
-                element: "#cracked",
-                title: "Cracked (Red-Team)",
-                text: "For authorized penetration testing only"
-            },
-            {
-                element: "#generateBtn",
-                title: "Generate Dorks",
-                text: "Click to create Google dorks for your search"
-            },
-            {
-                element: "#exportBtn",
-                title: "Export Results",
-                text: "Save your dorks in TXT, CSV, or JSON format"
-            },
-            {
-                element: "body",
-                title: "Pro Tip",
-                text: "If a dork returns no results, try switching Dork Complexity or using different keywords."
-            }
-        ];
+        // =============== TOUR SYSTEM ===============
+        function startTour() {
+            document.getElementById('tourPopup').style.display = 'none';
+            localStorage.setItem('tourCompleted', 'true');
 
-        // =============== Theme Toggle ===============
+            const steps = [
+                { el: document.getElementById('searchTerm'), msg: 'Enter any keyword here.' },
+                { el: document.querySelector('.complexity-selector'), msg: 'Choose dork complexity.' },
+                { el: document.querySelector('.file-types'), msg: 'Select file types to search.' },
+                { el: document.getElementById('generateBtn'), msg: 'Click to generate dorks.' }
+            ];
+            let i = 0;
+
+            const overlay = document.createElement('div');
+            overlay.id = 'tourOverlay';
+            document.body.appendChild(overlay);
+
+            const highlight = document.createElement('div');
+            highlight.id = 'tourHighlight';
+            document.body.appendChild(highlight);
+
+            const tooltip = document.createElement('div');
+            tooltip.id = 'tourTooltip';
+            document.body.appendChild(tooltip);
+
+            function showStep() {
+                if (i >= steps.length) {
+                    document.body.removeChild(overlay);
+                    document.body.removeChild(highlight);
+                    document.body.removeChild(tooltip);
+                    return;
+                }
+                const step = steps[i];
+                const rect = step.el.getBoundingClientRect();
+                const scrollTop = window.scrollY;
+                const scrollLeft = window.scrollX;
+
+                highlight.style.display = 'block';
+                highlight.style.top = (rect.top + scrollTop) + 'px';
+                highlight.style.left = (rect.left + scrollLeft) + 'px';
+                highlight.style.width = rect.width + 'px';
+                highlight.style.height = rect.height + 'px';
+
+                tooltip.textContent = step.msg;
+                tooltip.style.display = 'block';
+                tooltip.style.top = (rect.bottom + scrollTop + 10) + 'px';
+                tooltip.style.left = (rect.left + scrollLeft) + 'px';
+
+                tooltip.onclick = () => {
+                    i++;
+                    showStep();
+                };
+            }
+
+            overlay.style.display = 'block';
+            showStep();
+        }
+
+        // Show popup after disclaimer is closed
+        const observer = new MutationObserver(() => {
+            if (document.getElementById('disclaimerModal').style.display === 'none') {
+                if (!localStorage.getItem('tourCompleted')) {
+                    setTimeout(() => {
+                        document.getElementById('tourPopup').style.display = 'flex';
+                    }, 300);
+                }
+            }
+        });
+        observer.observe(document.getElementById('disclaimerModal'), { attributes: true, attributeFilter: ['style'] });
+
+        // =============== Original JS ===============
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         const icon = themeToggle.querySelector('i');
@@ -685,7 +810,6 @@
             }
         });
 
-        // =============== File Type Selection ===============
         document.querySelectorAll('.file-type-box').forEach(box => {
             box.addEventListener('click', function(e) {
                 if (e.target.tagName === 'INPUT') return;
@@ -719,24 +843,28 @@
             });
         });
 
-        // =============== Cracked Confirmation ===============
         function confirmCracked() {
             crackedConfirmed = true;
             document.getElementById('cracked').checked = true;
             document.querySelector('.file-type-box[data-type="cracked"]').classList.add('selected');
             document.getElementById('crackedWarningModal').style.display = 'none';
+            document.getElementById('crackedSubButtons').style.display = 'block';
         }
 
         function selectCrackedType(type) {
             selectedCrackedType = type;
+            document.querySelectorAll('.cracked-sub-buttons button').forEach(btn => {
+                btn.style.borderColor = '';
+                btn.style.boxShadow = '';
+            });
+            event.target.style.borderColor = '#ff4d4d';
+            event.target.style.boxShadow = '0 0 12px rgba(255, 77, 77, 0.6)';
         }
 
-        // =============== Template Modal ===============
         function showTemplateModal() {
             document.getElementById('templateModal').style.display = 'block';
         }
 
-        // =============== Preview ===============
         function updatePreview() {
             const term = document.getElementById('searchTerm').value.trim() || 'term';
             let preview = `"${term}"`;
@@ -747,7 +875,6 @@
 
         document.getElementById('searchTerm').addEventListener('input', updatePreview);
 
-        // =============== Complexity Buttons ===============
         document.querySelectorAll('.complexity-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.complexity-btn').forEach(b => b.classList.remove('active'));
@@ -757,7 +884,6 @@
             });
         });
 
-        // =============== Project Management ===============
         function newProject() {
             const name = prompt("Enter project name:");
             if (name) {
@@ -834,6 +960,16 @@
                 document.querySelector('.file-type-box[data-type="cracked"]').classList.add('selected');
                 document.getElementById('crackedSubButtons').style.display = 'block';
                 selectedCrackedType = config.crackedType || null;
+                if (selectedCrackedType) {
+                    setTimeout(() => {
+                        const btn = Array.from(document.querySelectorAll('.cracked-sub-buttons button'))
+                            .find(b => b.textContent.toLowerCase().includes(selectedCrackedType));
+                        if (btn) {
+                            btn.style.borderColor = '#ff4d4d';
+                            btn.style.boxShadow = '0 0 12px rgba(255, 77, 77, 0.6)';
+                        }
+                    }, 100);
+                }
             }
             (config.selectedTypes || []).forEach(type => {
                 if (type !== 'cracked') {
@@ -847,12 +983,12 @@
             updatePreview();
         }
 
-        // =============== Export Menu ===============
         document.getElementById('exportBtn').addEventListener('click', function(e) {
             e.stopPropagation();
             const menu = document.getElementById('exportMenu');
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         });
+
         document.addEventListener('click', () => {
             document.getElementById('exportMenu').style.display = 'none';
         });
@@ -885,7 +1021,6 @@
             URL.revokeObjectURL(url);
         }
 
-        // =============== Share & Notification ===============
         document.getElementById('saveBtn').addEventListener('click', saveProject);
         document.getElementById('shareBtn').addEventListener('click', function() {
             const config = getCurrentConfig();
@@ -909,7 +1044,6 @@
             setTimeout(() => { notif.style.display = 'none'; }, 3000);
         }
 
-        // =============== Copy Text ===============
         function copyText(text) {
             const ta = document.createElement('textarea');
             ta.value = text;
@@ -928,7 +1062,6 @@
             }
         }
 
-        // =============== Generate Dorks ===============
         function generateDorks() {
             const term = document.getElementById('searchTerm').value.trim();
             const siteFilter = document.getElementById('siteFilter').value.trim();
@@ -948,7 +1081,7 @@
             const all = document.getElementById('all').checked;
             const cracked = document.getElementById('cracked').checked;
             if (all) {
-                selected = ['documents', 'software', 'archives', 'configs', 'videos', ...(cracked ? ['cracked'] : [])];
+                selected = ['documents', 'archives', 'configs', 'videos', ...(cracked ? ['cracked'] : [])];
             } else {
                 document.querySelectorAll('.file-type-box input:checked').forEach(input => {
                     if (input.id !== 'all') selected.push(input.id);
@@ -968,6 +1101,7 @@
             if (excludeFilter) baseQuery += ` ${excludeFilter}`;
             const results = document.getElementById('dorkResults');
             results.innerHTML = '';
+
             selected.forEach(type => {
                 if (type === 'cracked') {
                     if (selectedCrackedType === 'windows') {
@@ -1008,7 +1142,6 @@
                 } else {
                     const fileTypes = {
                         documents: ['pdf', 'docx', 'txt', 'pptx'],
-                        software: ['exe', 'apk', 'dmg', 'msi'],
                         archives: ['zip', 'rar', '7z', 'tar'],
                         configs: ['env', 'json', 'xml', 'yml', 'sql'],
                         videos: ['mp4', 'mkv', 'avi', 'mov', 'wmv', 'flv']
@@ -1070,7 +1203,6 @@
             document.getElementById('dorkResults').appendChild(div);
         }
 
-        // =============== Button Delegation ===============
         document.getElementById('dorkResults').addEventListener('click', function(e) {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -1087,85 +1219,10 @@
             }
         });
 
-        // =============== Generate Button & Shortcuts ===============
         document.getElementById('generateBtn').addEventListener('click', generateDorks);
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'Enter') generateDorks();
         });
-
-        // =============== Onboarding Functions ===============
-        function showOnboardingStep() {
-            if (onboardingStep >= onboardingSteps.length) {
-                localStorage.setItem('onboardingDone', 'true');
-                document.getElementById('onboardingOverlay').style.display = 'none';
-                document.getElementById('onboardingTooltip').style.display = 'none';
-                isOnboarding = false;
-                return;
-            }
-
-            isOnboarding = true;
-            document.getElementById('onboardingOverlay').style.display = 'block';
-
-            const step = onboardingSteps[onboardingStep];
-            const tooltip = document.getElementById('onboardingTooltip');
-            document.getElementById('onboardingTitle').textContent = step.title;
-            document.getElementById('onboardingText').textContent = step.text;
-
-            // Remove previous highlight
-            document.querySelectorAll('.highlight-element').forEach(el => {
-                el.classList.remove('highlight-element');
-            });
-
-            if (step.element === "body") {
-                tooltip.style.left = '50%';
-                tooltip.style.top = '20%';
-                tooltip.style.transform = 'translateX(-50%)';
-                tooltip.style.display = 'block';
-            } else {
-                const el = document.querySelector(step.element);
-                if (!el) {
-                    nextOnboardingStep();
-                    return;
-                }
-                el.classList.add('highlight-element');
-
-                const rect = el.getBoundingClientRect();
-                const tooltipHeight = tooltip.offsetHeight;
-                const tooltipWidth = tooltip.offsetWidth;
-
-                // Position tooltip above or below
-                let topPos, leftPos;
-                if (rect.top > window.innerHeight / 2) {
-                    // Element is in bottom half → tooltip above
-                    topPos = rect.top + window.scrollY - tooltipHeight - 10;
-                } else {
-                    // Element is in top half → tooltip below
-                    topPos = rect.bottom + window.scrollY + 10;
-                }
-
-                leftPos = rect.left + window.scrollX;
-                if (leftPos + tooltipWidth > window.innerWidth) {
-                    leftPos = window.innerWidth - tooltipWidth - 10;
-                }
-
-                tooltip.style.left = leftPos + 'px';
-                tooltip.style.top = topPos + 'px';
-                tooltip.style.transform = 'none';
-                tooltip.style.display = 'block';
-            }
-        }
-
-        function nextOnboardingStep() {
-            onboardingStep++;
-            showOnboardingStep();
-        }
-
-        function skipOnboarding() {
-            localStorage.setItem('onboardingDone', 'true');
-            document.getElementById('onboardingOverlay').style.display = 'none';
-            document.getElementById('onboardingTooltip').style.display = 'none';
-            isOnboarding = false;
-        }
 
         // =============== Load on Start ===============
         window.addEventListener('load', function() {
@@ -1182,21 +1239,8 @@
             if (!localStorage.getItem('disclaimerAccepted')) {
                 document.getElementById('disclaimerModal').style.display = 'block';
                 localStorage.setItem('disclaimerAccepted', 'true');
-            } else if (!localStorage.getItem('onboardingDone')) {
-                setTimeout(() => {
-                    onboardingStep = 0;
-                    showOnboardingStep();
-                }, 1000);
             }
         });
-
-        // Prevent interaction during onboarding
-        document.addEventListener('click', function(e) {
-            if (isOnboarding && !e.target.closest('.onboarding-tooltip')) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-            }
-        }, true);
     </script>
 </body>
 </html>
