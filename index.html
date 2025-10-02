@@ -118,21 +118,22 @@
         .complexity-btn {
             flex: 1;
             padding: 8px;
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-primary);
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.85rem;
             transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 0 8px rgba(255, 77, 77, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: glowPulse 2s infinite;
         }
         .complexity-btn:hover {
             box-shadow: 0 0 12px rgba(255, 77, 77, 0.4);
         }
         .complexity-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .complexity-btn.active {
             border-color: var(--accent);
@@ -149,21 +150,22 @@
             flex: 1;
             min-width: 120px;
             padding: 8px;
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--text-primary);
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.85rem;
             transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: glowPulse 2s infinite;
         }
         .templates button:hover {
             box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
         }
         .templates button:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .project-manager {
             margin: 20px 0;
@@ -208,14 +210,17 @@
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.2s ease;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: glowPulse 2s infinite;
         }
         .action-buttons button:hover {
             box-shadow: 0 0 16px rgba(255, 77, 77, 0.5);
         }
         .action-buttons button:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         #generateBtn {
             background: linear-gradient(to right, var(--accent), #b91c1c);
@@ -323,51 +328,51 @@
             min-width: 110px;
             justify-content: center;
             transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: glowPulse 2s infinite;
         }
         .copy-btn {
             background: linear-gradient(to right, #2196F3, #0d47a1);
             color: white;
-            box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
         }
         .copy-btn:hover {
             box-shadow: 0 0 12px rgba(33, 150, 243, 0.5);
         }
         .copy-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .open-btn {
             background: linear-gradient(to right, #10b981, #047857);
             color: white;
-            box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
         }
         .open-btn:hover {
             box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
         }
         .open-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .safe-btn {
             background: linear-gradient(to right, #8b5cf6, #7c3aed);
             color: white;
-            box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
         }
         .safe-btn:hover {
             box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
         }
         .safe-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .engine-btn {
             background: linear-gradient(to right, #64748b, #334155);
             color: white;
-            box-shadow: 0 0 8px rgba(100, 116, 139, 0.3);
         }
         .engine-btn:hover {
             box-shadow: 0 0 12px rgba(100, 116, 139, 0.5);
         }
         .engine-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
         .history {
             margin-top: 30px;
@@ -445,87 +450,32 @@
         .cracked-sub-buttons button {
             padding: 10px 15px;
             margin: 5px;
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.9rem;
             transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: glowPulse 2s infinite;
         }
         .cracked-sub-buttons button:hover {
             box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
         }
         .cracked-sub-buttons button:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
+        }
+        .cracked-sub-buttons button.selected {
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 12px rgba(255, 77, 77, 0.6) !important;
         }
 
-        /* =============== TOUR POPUP =============== */
-        #tourPopup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9998;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
-            font-family: sans-serif;
-        }
-        #tourPopup > div {
-            background: #ff4d4d;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 77, 77, 0.7);
-        }
-        #tourPopup p {
-            margin-top: 20px;
-            font-size: 0.95rem;
-            max-width: 400px;
-            text-align: center;
-            color: white;
-        }
-
-        /* =============== TOUR OVERLAY =============== */
-        #tourOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            display: none;
-        }
-        #tourHighlight {
-            position: absolute;
-            border-radius: 8px;
-            box-shadow: 0 0 0 9999px rgba(0,0,0,0.7), 0 0 0 3px #ff4d4d;
-            z-index: 10000;
-        }
-        #tourTooltip {
-            position: absolute;
-            background: #1e293b;
-            color: #f1f5f9;
-            padding: 12px;
-            border-radius: 8px;
-            max-width: 280px;
-            z-index: 10001;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            display: none;
+        /* =============== GLOW PULSE ANIMATION =============== */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(255, 77, 77, 0.3); }
+            50% { box-shadow: 0 0 16px rgba(255, 77, 77, 0.5); }
         }
 
         @media (max-width: 600px) {
@@ -701,13 +651,6 @@
             <p><strong>Always respect copyright laws.</strong></p>
         </div>
     </div>
-
-    <!-- TOUR POPUP (Appears once after disclaimer) -->
-    <div id="tourPopup">
-        <div onclick="startTour()">?</div>
-        <p>Click <strong>?</strong> to start an interactive tour.</p>
-    </div>
-
     <script>
         // =============== State ===============
         let currentProject = 'Default Project';
@@ -720,78 +663,7 @@
             bing: "https://www.bing.com/search?q=",
             duckduckgo: "https://duckduckgo.com/?q="
         };
-
-        // =============== TOUR SYSTEM ===============
-        function startTour() {
-            document.getElementById('tourPopup').style.display = 'none';
-            localStorage.setItem('tourCompleted', 'true');
-
-            const steps = [
-                { el: document.getElementById('searchTerm'), msg: 'Enter any keyword here.' },
-                { el: document.querySelector('.complexity-selector'), msg: 'Choose dork complexity.' },
-                { el: document.querySelector('.file-types'), msg: 'Select file types to search.' },
-                { el: document.getElementById('generateBtn'), msg: 'Click to generate dorks.' }
-            ];
-            let i = 0;
-
-            const overlay = document.createElement('div');
-            overlay.id = 'tourOverlay';
-            document.body.appendChild(overlay);
-
-            const highlight = document.createElement('div');
-            highlight.id = 'tourHighlight';
-            document.body.appendChild(highlight);
-
-            const tooltip = document.createElement('div');
-            tooltip.id = 'tourTooltip';
-            document.body.appendChild(tooltip);
-
-            function showStep() {
-                if (i >= steps.length) {
-                    document.body.removeChild(overlay);
-                    document.body.removeChild(highlight);
-                    document.body.removeChild(tooltip);
-                    return;
-                }
-                const step = steps[i];
-                const rect = step.el.getBoundingClientRect();
-                const scrollTop = window.scrollY;
-                const scrollLeft = window.scrollX;
-
-                highlight.style.display = 'block';
-                highlight.style.top = (rect.top + scrollTop) + 'px';
-                highlight.style.left = (rect.left + scrollLeft) + 'px';
-                highlight.style.width = rect.width + 'px';
-                highlight.style.height = rect.height + 'px';
-
-                tooltip.textContent = step.msg;
-                tooltip.style.display = 'block';
-                tooltip.style.top = (rect.bottom + scrollTop + 10) + 'px';
-                tooltip.style.left = (rect.left + scrollLeft) + 'px';
-
-                tooltip.onclick = () => {
-                    i++;
-                    showStep();
-                };
-            }
-
-            overlay.style.display = 'block';
-            showStep();
-        }
-
-        // Show popup after disclaimer is closed
-        const observer = new MutationObserver(() => {
-            if (document.getElementById('disclaimerModal').style.display === 'none') {
-                if (!localStorage.getItem('tourCompleted')) {
-                    setTimeout(() => {
-                        document.getElementById('tourPopup').style.display = 'flex';
-                    }, 300);
-                }
-            }
-        });
-        observer.observe(document.getElementById('disclaimerModal'), { attributes: true, attributeFilter: ['style'] });
-
-        // =============== Original JS ===============
+        // =============== Theme Toggle ===============
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         const icon = themeToggle.querySelector('i');
@@ -809,7 +681,7 @@
                 icon.className = 'fas fa-moon';
             }
         });
-
+        // =============== File Type Selection ===============
         document.querySelectorAll('.file-type-box').forEach(box => {
             box.addEventListener('click', function(e) {
                 if (e.target.tagName === 'INPUT') return;
@@ -842,7 +714,7 @@
                 }
             });
         });
-
+        // =============== Cracked Confirmation ===============
         function confirmCracked() {
             crackedConfirmed = true;
             document.getElementById('cracked').checked = true;
@@ -850,21 +722,20 @@
             document.getElementById('crackedWarningModal').style.display = 'none';
             document.getElementById('crackedSubButtons').style.display = 'block';
         }
-
         function selectCrackedType(type) {
             selectedCrackedType = type;
+            // Remove selection from all
             document.querySelectorAll('.cracked-sub-buttons button').forEach(btn => {
-                btn.style.borderColor = '';
-                btn.style.boxShadow = '';
+                btn.classList.remove('selected');
             });
-            event.target.style.borderColor = '#ff4d4d';
-            event.target.style.boxShadow = '0 0 12px rgba(255, 77, 77, 0.6)';
+            // Add selection to clicked
+            event.target.classList.add('selected');
         }
-
+        // =============== Template Modal ===============
         function showTemplateModal() {
             document.getElementById('templateModal').style.display = 'block';
         }
-
+        // =============== Preview ===============
         function updatePreview() {
             const term = document.getElementById('searchTerm').value.trim() || 'term';
             let preview = `"${term}"`;
@@ -872,9 +743,8 @@
             if (currentComplexity === 'expert') preview += ` intitle:"index of" ext:mp4 inurl:video`;
             document.getElementById('livePreview').textContent = preview;
         }
-
         document.getElementById('searchTerm').addEventListener('input', updatePreview);
-
+        // =============== Complexity Buttons ===============
         document.querySelectorAll('.complexity-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.complexity-btn').forEach(b => b.classList.remove('active'));
@@ -883,7 +753,7 @@
                 updatePreview();
             });
         });
-
+        // =============== Project Management ===============
         function newProject() {
             const name = prompt("Enter project name:");
             if (name) {
@@ -892,7 +762,6 @@
                 loadProjects();
             }
         }
-
         function saveProject() {
             const config = getCurrentConfig();
             const projects = JSON.parse(localStorage.getItem('dorkProjects') || '{}');
@@ -903,7 +772,6 @@
             localStorage.setItem('dorkProjects', JSON.stringify(projects));
             showNotification(`Project "${currentProject}" saved!`);
         }
-
         function loadProjects() {
             const projects = JSON.parse(localStorage.getItem('dorkProjects') || '{}');
             const list = document.getElementById('projectList');
@@ -920,7 +788,6 @@
                 list.appendChild(div);
             });
         }
-
         function getCurrentConfig() {
             return {
                 searchTerm: document.getElementById('searchTerm').value.trim(),
@@ -935,7 +802,6 @@
                 complexity: currentComplexity
             };
         }
-
         function applyConfig(config) {
             document.getElementById('searchTerm').value = config.searchTerm || '';
             document.getElementById('siteFilter').value = config.siteFilter || '';
@@ -961,12 +827,12 @@
                 document.getElementById('crackedSubButtons').style.display = 'block';
                 selectedCrackedType = config.crackedType || null;
                 if (selectedCrackedType) {
+                    // Re-apply visual selection
                     setTimeout(() => {
                         const btn = Array.from(document.querySelectorAll('.cracked-sub-buttons button'))
                             .find(b => b.textContent.toLowerCase().includes(selectedCrackedType));
                         if (btn) {
-                            btn.style.borderColor = '#ff4d4d';
-                            btn.style.boxShadow = '0 0 12px rgba(255, 77, 77, 0.6)';
+                            btn.classList.add('selected');
                         }
                     }, 100);
                 }
@@ -982,17 +848,15 @@
             });
             updatePreview();
         }
-
+        // =============== Export Menu ===============
         document.getElementById('exportBtn').addEventListener('click', function(e) {
             e.stopPropagation();
             const menu = document.getElementById('exportMenu');
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         });
-
         document.addEventListener('click', () => {
             document.getElementById('exportMenu').style.display = 'none';
         });
-
         function exportAs(format) {
             const dorks = Array.from(document.querySelectorAll('.dork-item')).map(item => {
                 const cmd = item.querySelector('.dork-command').textContent;
@@ -1020,7 +884,7 @@
             a.click();
             URL.revokeObjectURL(url);
         }
-
+        // =============== Share & Notification ===============
         document.getElementById('saveBtn').addEventListener('click', saveProject);
         document.getElementById('shareBtn').addEventListener('click', function() {
             const config = getCurrentConfig();
@@ -1029,21 +893,19 @@
             document.getElementById('shareLink').value = url;
             document.getElementById('shareModal').style.display = 'block';
         });
-
         function copyShareLink() {
             const link = document.getElementById('shareLink').value;
             copyText(link);
             document.getElementById('shareModal').style.display = 'none';
             showNotification('Share link copied!');
         }
-
         function showNotification(msg) {
             const notif = document.getElementById('notification');
             notif.textContent = msg;
             notif.style.display = 'block';
             setTimeout(() => { notif.style.display = 'none'; }, 3000);
         }
-
+        // =============== Copy Text ===============
         function copyText(text) {
             const ta = document.createElement('textarea');
             ta.value = text;
@@ -1061,7 +923,7 @@
                 return false;
             }
         }
-
+        // =============== Generate Dorks ===============
         function generateDorks() {
             const term = document.getElementById('searchTerm').value.trim();
             const siteFilter = document.getElementById('siteFilter').value.trim();
@@ -1101,7 +963,6 @@
             if (excludeFilter) baseQuery += ` ${excludeFilter}`;
             const results = document.getElementById('dorkResults');
             results.innerHTML = '';
-
             selected.forEach(type => {
                 if (type === 'cracked') {
                     if (selectedCrackedType === 'windows') {
@@ -1183,7 +1044,6 @@
                 list.appendChild(div);
             });
         }
-
         function addDorkItem(dork, title, tip, score, estResults, isCracked) {
             const div = document.createElement('div');
             div.className = 'dork-item';
@@ -1202,7 +1062,7 @@
             `;
             document.getElementById('dorkResults').appendChild(div);
         }
-
+        // =============== Button Delegation ===============
         document.getElementById('dorkResults').addEventListener('click', function(e) {
             const btn = e.target.closest('button');
             if (!btn) return;
@@ -1218,12 +1078,11 @@
                 window.open(url, '_blank');
             }
         });
-
+        // =============== Generate Button & Shortcuts ===============
         document.getElementById('generateBtn').addEventListener('click', generateDorks);
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey && e.key === 'Enter') generateDorks();
         });
-
         // =============== Load on Start ===============
         window.addEventListener('load', function() {
             loadProjects();
